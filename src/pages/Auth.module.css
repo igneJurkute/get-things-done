@@ -1,0 +1,68 @@
+.welcome {
+    display: grid;
+    grid-template-areas:
+        'logo'
+        'title'
+        'form'
+        'or'
+        'socials'
+        'link';
+    gap: 2rem;
+    padding: 2rem;
+    justify-items: center;
+    text-align: center;
+}
+
+.logo {
+    grid-area: logo;
+    width: 200px;
+}
+
+h1 {
+    grid-area: title;
+    font-size: 3.5rem;
+}
+
+.form {
+    grid-area: form;
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    background-color: pink;
+}
+
+p {
+    font-size: 2rem;
+}
+.or {
+    grid-area: or;
+}
+.pLink {
+    grid-area: link;
+}
+
+.link {
+    padding: 1rem 2rem;
+    background-color: #666af6;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+}
+
+.socials {
+    grid-area: socials;
+    display: flex;
+    gap: 1rem;
+}
+
+.socials > button {
+    width: 2em;
+    height: 2em;
+    font-size: 2rem;
+    line-height: 2em;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #666af6;
+    color: #fff;
+}
