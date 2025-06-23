@@ -1,12 +1,17 @@
 import { Link } from 'react-router-dom';
 import style from './Auth.module.css';
 import formStyle from './Form.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
+    const [users, setUsers] = useState(() => JSON.parse(localStorage.getItem('users')) || []);
+
+    useEffect(() => {
+        localStorage.setItem('users', JSON.stringify(users));
+    }, [users]);
 
     function updateUsername(e) {
         setUsername(e.target.value);
@@ -35,19 +40,18 @@ export function Register() {
         setErrors(newErrors);
 
         if (!errors.length) {
-            console.log('register...');
-            console.log({ username, password });
+            setUsers((prev) => [...prev, { username, password }]);
         }
     }
 
     return (
         <>
-            <h1>Register</h1>
-            <div className={`${formStyle.error} ${errors.length ? formStyle.show : ''}`}>Add commentMore actions
+            <h1>Register ({users.length})</h1>
+            <div className={`${formStyle.error} ${errors.length ? formStyle.show : ''}`}>
                 {errors.map(err => <p>{err}</p>)}
             </div>
 
-            <form className={formStyle.form}>Add commentMore actions
+            <form className={formStyle.form}>
                 <div className={formStyle.row}>
                     <label htmlFor="username">Username</label>
                     <input onChange={updateUsername} value={username} id='username' type="text" />
