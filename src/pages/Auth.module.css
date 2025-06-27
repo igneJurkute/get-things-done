@@ -8,7 +8,7 @@
         'or'
         'socials'
         'link';
-    gap: 2rem;
+    gap: 1.5rem;
     padding: 2rem;
     justify-items: center;
     text-align: center;
@@ -16,12 +16,12 @@
 
 .logo {
     grid-area: logo;
-    width: 200px;
+    width: 150px;
 }
 
 h1 {
     grid-area: title;
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 
 .form {

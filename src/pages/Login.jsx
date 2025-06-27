@@ -9,6 +9,7 @@ export function Login() {
 
             <form className={style.form}>
                 LOGIN FORM
+                <Link to='/tasks'>To account</Link>
             </form>
 
             <p>or sign in with</p>

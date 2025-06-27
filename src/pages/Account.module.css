@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0.1rem 0.4rem #0002;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    height: 3rem;
+}
+
+.menuIcon {
+    cursor: pointer;
+}
+
+.menuContent {
+    position: fixed;
+    inset: 0 0 0 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-end;
+    padding: 1rem;
+    background-color: #fff;
+    background-color: #ddd;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+.menu > a {
+    display: flex;
+    gap: 1rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.linkIcon {
+    color: red;
+}

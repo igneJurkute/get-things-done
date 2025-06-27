@@ -62,6 +62,7 @@ export function Register() {
                 </div>
                 <div className={formStyle.row}>
                     <button onClick={registerUser} type="submit">Register</button>
+                    <Link to='/login'>To login</Link>
                 </div>
             </form>
 

@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import style from '../pages/Auth.module.css';
 import logo from '../assets/img/logo.png';
 import { useEffect, useState } from 'react';
@@ -15,10 +15,7 @@ export function AuthLayout() {
 
     return (
         <div className={style.welcome}>
-            <div className={style.logo}>
-                <img onClick={updateCount} src={logo} alt="Img" />
-                <p>{click}</p>
-            </div>
+            <img className={style.logo} onClick={updateCount} src={logo} alt="Img" />
             <Outlet />
             <div className={style.socials}>
                 <button>FB</button>

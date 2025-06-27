@@ -4,7 +4,7 @@ import logo from '../assets/img/logo.png';
 
 export function Welcome() {
     const loggedInUser = -1;
-    const ads = false;
+    const ads = true;
     const url = loggedInUser >= 0 ? '/account' : ads ? '/register' : '/ad/1';
 
     return (
