@@ -30,25 +30,30 @@ export function Register() {
 
         const newErrors = [];
         if (username.length < minUsernameLength || username.length > maxUsernameLength) {
-            newErrors.push('klaida: username...');
+            newErrors.push('Username netinkamo ilgio');
         }
 
         if (password.length < minPasswordLength || password.length > maxPasswordLength) {
-            newErrors.push('klaida: password...');
+            newErrors.push('Password netinkamo ilgio');
         }
 
         setErrors(newErrors);
 
         if (!errors.length) {
             setUsers((prev) => [...prev, { username, password }]);
+            } else {
+            fetch('http://localhost:3001/api', {
+                method: 'GET',
+            }).then(res => res.json())
+                .then(data => console.log(data));
         }
     }
 
     return (
         <>
-            <h1>Register ({users.length})</h1>
+            <h1>Register</h1>
             <div className={`${formStyle.error} ${errors.length ? formStyle.show : ''}`}>
-                {errors.map(err => <p>{err}</p>)}
+                {errors.map((err, index) => <p key={index}>{err}</p>)}
             </div>
 
             <form className={formStyle.form}>

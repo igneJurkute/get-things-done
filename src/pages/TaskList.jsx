@@ -8,7 +8,7 @@ export function TaskList() {
         <div className={style.content}>
             <h1 className={style.title}>Tasks</h1>
             <div className={style.taskList}>
-                {tasksData.map(task => <p>{task.id} {task.text} <Link to={`/tasks/${task.id}`}>Read more</Link></p>)}
+                {tasksData.map(task => <p key={task.id}>{task.id}) {task.text} <Link to={`/tasks/${task.id}`}>Read more</Link></p>)}
             </div>
         </div>
     );

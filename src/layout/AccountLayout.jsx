@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import logo from '../assets/img/logo-pure.png';
+import { FaShoppingCart, FaCubes, FaBuilding, FaPlus, FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GrClose } from 'react-icons/gr';
 import style from '../pages/Account.module.css';
@@ -8,26 +9,26 @@ import style from '../pages/Account.module.css';
 export function AccountLayout() {
      const [menuVisibility, setMenuVisibility] = useState(false);
 
-    const menuList1 = [
+    const menuList = [
         {
             type: 'link',
             id: 'm11',
-            icon: <GiHamburgerMenu className={style.linkIcon} size='1.5rem' />,
-            title: 'Link 1',
+            icon: <FaShoppingCart className={style.linkIcon} size='1.2rem' />,
+            title: 'Carts list',
             url: '/tasks',
         },
         {
             type: 'link',
             id: 'm12',
-            icon: <GiHamburgerMenu className={style.linkIcon} size='1.5rem' />,
-            title: 'Link 2',
+            icon: <FaCubes className={style.linkIcon} size='1.2rem' />,
+            title: 'Products list',
             url: '/tasks',
         },
         {
             type: 'link',
             id: 'm13',
-            icon: <GiHamburgerMenu className={style.linkIcon} size='1.5rem' />,
-            title: 'Link 3',
+            icon: <FaBuilding className={style.linkIcon} size='1.2rem' />,
+            title: 'Shops list',
             url: '/tasks',
         },
         {
@@ -36,22 +37,22 @@ export function AccountLayout() {
         {
             type: 'link',
             id: 'm21',
-            icon: <GiHamburgerMenu className={style.linkIcon} size='1.5rem' />,
-            title: 'Link 4',
+            icon: <FaPlus className={style.linkIcon} size='1.2rem' />,
+            title: 'New cart',
             url: '/tasks',
         },
         {
             type: 'link',
             id: 'm22',
-            icon: <GiHamburgerMenu className={style.linkIcon} size='1.5rem' />,
-            title: 'Link 5',
+            icon: <FaPlus className={style.linkIcon} size='1.2rem' />,
+            title: 'New product',
             url: '/tasks',
         },
         {
             type: 'link',
             id: 'm23',
-            icon: <GiHamburgerMenu className={style.linkIcon} size='1.5rem' />,
-            title: 'Link 6',
+            icon: <FaPlus className={style.linkIcon} size='1.2rem' />,
+            title: 'New shop',
             url: '/tasks',
         },
         {
@@ -60,23 +61,23 @@ export function AccountLayout() {
         {
             type: 'link',
             id: 'm31',
-            icon: <GiHamburgerMenu className={style.linkIcon} size='1.5rem' />,
-            title: 'Link 7',
+            icon: <FaUser className={style.linkIcon} size='1.2rem' />,
+            title: 'Account',
             url: '/tasks',
         },
         {
             type: 'link',
             id: 'm32',
-            icon: <GiHamburgerMenu className={style.linkIcon} size='1.5rem' />,
-            title: 'Link 8',
+            icon: <FaCog className={style.linkIcon} size='1.2rem' />,
+            title: 'Settings',
             url: '/tasks',
         },
         {
             type: 'link',
             id: 'm33',
-            icon: <GiHamburgerMenu className={style.linkIcon} size='1.5rem' />,
-            title: 'Link 9',
-            url: '/tasks',
+            icon: <FaSignOutAlt className={style.linkIcon} size='1.2rem' />,
+            title: 'Log out',
+            url: '/login',
         },
     ];
 
@@ -89,27 +90,29 @@ export function AccountLayout() {
             <header className={style.header}>
                 <img className={style.logo} src={logo} alt="Logo" />
                 {menuVisibility && (
-                    <div className={style.menuContent}>
-                        <GrClose onClick={updateMenuVisibility} className={style.menuIcon} size='2.5rem' />
-                        <nav className={style.menu}>
-                            {
-                                menuList1.map(link => {
-                                    if (link.type === 'line') {
-                                        return <hr />;
-                                    }
-                                    if (link.type === 'link') {
-                                        return (
-                                            <Link key={link.id} to={link.url}>
-                                                {link.icon}{link.title}
-                                            </Link>
-                                        );
-                                    }
-
+                    <>
+                        <div onClick={updateMenuVisibility} className={style.lock}></div>
+                        <div className={style.menuContent}>
+                            <GrClose onClick={updateMenuVisibility} className={style.menuIcon} size='2.5rem' />
+                            <nav className={style.menu}>
+                                {
+                                    menuList.map((link, index) => {
+                                        if (link.type === 'line') {
+                                            return <hr key={index} />;
+                                        }
+                                        if (link.type === 'link') {
+                                            return (
+                                                <Link key={link.id} to={link.url}>
+                                                    {link.icon}{link.title}
+                                                </Link>
+                                            );
+                                        }
                                     return <>ERROR</>;
-                                })
-                            }
-                        </nav>
-                    </div>
+                                    })
+                                }
+                            </nav>
+                        </div>
+                    </>
                 )}
                 <GiHamburgerMenu onClick={updateMenuVisibility} className={style.menuIcon} size='2.5rem' />
             </header>
